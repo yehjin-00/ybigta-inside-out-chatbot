@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import sys
+# import sys
 
 class KakaoTemplate:
     def __init__(self):

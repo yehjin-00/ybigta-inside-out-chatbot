@@ -1,4 +1,5 @@
 import socket
+from config.ServerConfig import *
 
 class BotServer:
     def __init__(self, srv_port, listen_num):
@@ -9,7 +10,7 @@ class BotServer:
     # sock 생성
     def create_sock(self):
         self.mySock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.mySock.bind(("0.0.0.0", int(self.port)))
+        self.mySock.bind((API_HOST, int(self.port)))
         self.mySock.listen(int(self.listen))
         return self.mySock
 

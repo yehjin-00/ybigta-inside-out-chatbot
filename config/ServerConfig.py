@@ -1,5 +1,5 @@
 # chatbot engine host, port
-ENGINE_HOST = "44.194.33.47"
+ENGINE_HOST = "52.44.196.245"
 ENGINE_PORT = 5050
 
 # chatbot api host, port

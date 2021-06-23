@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, abort
 from config.ServerConfig import *
+from config.FilePathConfig import *
 import socket
 import json
 
@@ -41,8 +42,6 @@ def query(bot_type):
     body = request.get_json()
 
     try:
-        BOT_TYPE = ['BINGBONG', 'ANGER', 'JOY', 'SADNESS']
-
         # BOT_TYPE에 해당되지 않으면 404 오류
         if bot_type not in BOT_TYPE:
             abort(404)

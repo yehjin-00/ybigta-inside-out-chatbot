@@ -1,9 +1,13 @@
-import threading
-import json
-
 from config.ServerConfig import *
 from utils.BotServer import BotServer
 from models.InsideOut import *
+from models.modeling import *
+import threading
+import json
+from silence_tensorflow import silence_tensorflow
+
+# tensorflow warning 안 나오게 하기
+silence_tensorflow()
 
 def to_client(conn, addr, model_dict):
     try:
@@ -20,17 +24,21 @@ def to_client(conn, addr, model_dict):
         # json 데이터로 변환
         recv_json_data = json.loads(read.decode())
         print("데이터 수신 : ", recv_json_data)
-        query = recv_json_data['Query']
         bot_type = recv_json_data['BotType']
+        query = recv_json_data['Query']
+
 
         # 모델 돌려서 answer 얻기
         model = model_dict[bot_type]
         try:
+        #     if bot_type == BOT_TYPE[0]: # EMOTION
+        #         answer_image = 'EMOTION 스킬로 답변하는 중!'
+        #     else:
             answer = model.predict(query)
+            answer_image = None
+
         except:
             answer = "에러 났어요 삐용삐용"
-
-        answer_image = None # 원하면 넣기
 
         send_json_data_str = {
             "Query" : query,
@@ -49,12 +57,18 @@ def to_client(conn, addr, model_dict):
 
 if __name__ == '__main__':
 
+    print("MODEL START")
     model_dict = dict()
-    model_dict['ANGER'] = InsideOut('ANGER')
-    model_dict['JOY'] = InsideOut('JOY')
-    model_dict['SADNESS'] = InsideOut('SADNESS')
-    model_dict['BINGBONG'] = InsideOut('BINGBONG')
-    print("model completed")
+
+    # 감정 모델
+    model_dict[BOT_TYPE[0]] = Emotion()
+    print(f"1. {BOT_TYPE[0].lower()} model completed")
+
+    for i, bot in enumerate(BOT_TYPE[1:]):
+        model_dict[bot] = InsideOut(bot)
+        print(f"{i+2}. {bot.lower()} model completed")
+
+    print("MODEL COMPLETED")
 
     port = ENGINE_PORT
     listen = 100
@@ -62,7 +76,7 @@ if __name__ == '__main__':
     # 봇 서버 동작
     bot = BotServer(port, listen)
     bot.create_sock()
-    print("bot start")
+    print("BOT START")
 
     while True:
         conn, addr = bot.ready_for_client()
