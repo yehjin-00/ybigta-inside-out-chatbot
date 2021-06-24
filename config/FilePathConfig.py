@@ -1,5 +1,5 @@
-# bot types (무조건 EMOTION이 마지막)
-BOT_TYPE = ['EMOTION', 'ANGER', 'JOY', 'SADNESS']
+# bot types (무조건 EMOTION이 처음)
+BOT_TYPE = ['EMOTION', 'ANGER', 'JOY', 'SADNESS', 'FEAR', 'BINGBONG']
 
 # train data dict (use bot_type for key)
 TRAIN_DATA = dict()
@@ -13,5 +13,5 @@ for bot in BOT_TYPE:
 
 CHECKPOINT['EMOTION'] = f'/home/ubuntu/pycharm/models/checkpoint/emotion/model_final_model.pth'
 
-def ServerConfig():
+def FilePathConfig():
     global TRAIN_DATA, CHECKPOINT, BOT_TYPE
