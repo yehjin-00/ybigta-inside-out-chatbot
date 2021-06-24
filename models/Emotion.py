@@ -47,10 +47,10 @@ class Emotion:
 
     def predict(self, input):
         clf_num = self.predict_number(input)
-        image_path = {'0': 'https://thumbs.gfycat.com/VigorousSecondaryGrayreefshark-size_restricted.gif',
-                      '1': 'https://i.pinimg.com/originals/c2/82/dc/c282dc703d4248cf707f86533e4d7619.gif',
-                      '2': 'https://static.wikia.nocookie.net/insideout/images/0/0f/JOY_Fullbody_Render.png/revision/latest?cb=20150720185554',
-                      '3': 'https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2015/7/22/1437565222935/647ad9e5-b174-492e-81c4-0e4150e31fd0-945x2040.jpeg?width=445&quality=45&auto=format&fit=max&dpr=2&s=66306efc6e42438664a858153cb43d96'}
+        image_path = {'0': 'https://github.com/JW12450/Inside_Out_Chatbot/blob/main/images/emotion_anger.gif?raw=true',
+                      '1': 'https://github.com/JW12450/Inside_Out_Chatbot/blob/main/images/emotion_sadness.gif?raw=true',
+                      '2': 'https://github.com/JW12450/Inside_Out_Chatbot/blob/main/images/emotion_joy.gif?raw=true',
+                      '3': 'https://github.com/JW12450/Inside_Out_Chatbot/blob/main/images/emotion_fear.gif?raw=true'}
         return image_path[clf_num]
 
 # 0 -> 버럭이
