@@ -1,7 +1,8 @@
 from config.ServerConfig import *
 from utils.BotServer import BotServer
 from models.InsideOut import *
-from models.modeling import *
+from models.Emotion import *
+from models.Modelling import *
 import threading
 import json
 from silence_tensorflow import silence_tensorflow
@@ -31,11 +32,12 @@ def to_client(conn, addr, model_dict):
         # 모델 돌려서 answer 얻기
         model = model_dict[bot_type]
         try:
-        #     if bot_type == BOT_TYPE[0]: # EMOTION
-        #         answer_image = 'EMOTION 스킬로 답변하는 중!'
-        #     else:
-            answer = model.predict(query)
-            answer_image = None
+            if bot_type == BOT_TYPE[0]: # EMOTION
+                answer_image = model.predict(query)
+                answer = None
+            else:
+                answer = model.predict(query)
+                answer_image = None
 
         except:
             answer = "에러 났어요 삐용삐용"
@@ -61,12 +63,15 @@ if __name__ == '__main__':
     model_dict = dict()
 
     # 감정 모델
+    print(f"1. {BOT_TYPE[0].lower()} model start")
     model_dict[BOT_TYPE[0]] = Emotion()
-    print(f"1. {BOT_TYPE[0].lower()} model completed")
 
     for i, bot in enumerate(BOT_TYPE[1:]):
-        model_dict[bot] = InsideOut(bot)
-        print(f"{i+2}. {bot.lower()} model completed")
+        print(f"{i+2}. {bot.lower()} model start")
+        if bot == 'BINGBONG':
+            model_dict[bot] = InsideOut(bot, 2)
+        else:
+            model_dict[bot] = InsideOut(bot, 6)
 
     print("MODEL COMPLETED")
 

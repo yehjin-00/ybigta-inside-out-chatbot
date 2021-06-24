@@ -4,18 +4,18 @@ import re
 # import time
 import tensorflow_datasets as tfds
 # import tensorflow as tf
-from models.Model import *
+from models.Modelling import *
 from config.FilePathConfig import *
 
 # Load Model Module
 class InsideOut:
-    def __init__(self, bot_type):
+    def __init__(self, bot_type, num_layers):
         train_data = pd.read_csv(TRAIN_DATA[bot_type], index_col=0)
         checkpoint_path = CHECKPOINT[bot_type]
 
         # Hyper-parameters
         self.D_MODEL = 256
-        self.NUM_LAYERS = 2
+        self.NUM_LAYERS = num_layers
         self.NUM_HEADS = 8
         self.DFF = 512
         self.DROPOUT = 0.1
