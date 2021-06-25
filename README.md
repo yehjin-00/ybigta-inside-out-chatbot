@@ -1,4 +1,4 @@
-# InsideOut Chatbot
+# INSIDE OUT Chatbot
 
 ### 21-1 YBIGTA Conference
 
