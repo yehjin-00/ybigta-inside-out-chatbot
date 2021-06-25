@@ -16,7 +16,6 @@
 ## Repository
 
 - chatbot_api
-    * app.py
     * KakaoTemplate.py
 - config
     * FilePathConfig.py
@@ -28,7 +27,8 @@
     * InsideOut.py
     * Modelling.py
 - utils
-    - BotServer.py
+    * BotServer.py
+- app.py
 - bot.py
 
 
