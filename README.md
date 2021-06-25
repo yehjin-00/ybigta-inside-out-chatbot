@@ -10,7 +10,7 @@
 
 
 ## 데이터 파이프라인
-@@
+![Structure](images/project_structure.png)
 
 
 ## Repository
