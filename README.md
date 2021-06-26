@@ -32,7 +32,7 @@
 - bot.py
 
 ## 발표 자료
-![Google Drive Link](https://drive.google.com/file/d/1hh0QnUIV4cUdRUCsYxUa5pHsY0nam94W/view?usp=sharing)
+[Google Drive Link](https://drive.google.com/file/d/1hh0QnUIV4cUdRUCsYxUa5pHsY0nam94W/view?usp=sharing)
 
 ## 발표 영상
 @@
