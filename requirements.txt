@@ -1,0 +1,15 @@
+flask
+sockets
+jsons
+pandas
+numpy
+tensorflow_datasets
+tensorflow-cpu
+torch
+tqdm
+silence_tensorflow
+sentencepiece
+transformers==3.0.0
+mxnet
+gluonnlp==0.7.0
+flask
