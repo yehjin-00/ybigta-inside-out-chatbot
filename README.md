@@ -34,8 +34,5 @@
 ## 발표 자료
 [Google Drive Link](https://drive.google.com/file/d/1hh0QnUIV4cUdRUCsYxUa5pHsY0nam94W/view?usp=sharing)
 
-## 발표 영상
-@@
-
-## 시연 영상
-@@
+## 발표 및 시연 영상
+[Youtube](https://www.youtube.com/watch?v=g3M32ws9TXc)
