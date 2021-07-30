@@ -8,10 +8,10 @@ TRAIN_DATA = dict()
 CHECKPOINT = dict()
 
 for bot in BOT_TYPE:
-    TRAIN_DATA[bot] = f'/home/ubuntu/pycharm/models/dataset/{bot.lower()}_train_data.csv'
-    CHECKPOINT[bot] = f'/home/ubuntu/pycharm/models/checkpoint/{bot.lower()}/cp.ckpt'
+    TRAIN_DATA[bot] = f'/home/ubuntu/ybigta-inside-out-chatbot/chatbot/models/dataset/{bot.lower()}_train_data.csv'
+    CHECKPOINT[bot] = f'/home/ubuntu/ybigta-inside-out-chatbot/chatbot/models/checkpoint/{bot.lower()}/cp.ckpt'
 
-CHECKPOINT['EMOTION'] = f'/home/ubuntu/pycharm/models/checkpoint/emotion/model_final_model.pth'
+CHECKPOINT['EMOTION'] = f'/home/ubuntu/ybigta-inside-out-chatbot/chatbot/models/checkpoint/emotion/model_final_model.pth'
 
 def FilePathConfig():
     global TRAIN_DATA, CHECKPOINT, BOT_TYPE
